@@ -14,7 +14,7 @@ speech_config = speechsdk.SpeechConfig(subscription=os.environ['AZURE_SPEECH_KEY
 speech_config.speech_synthesis_voice_name = "nl-NL-ColetteNeural"
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 
-context = [{"role": "system", "content": 'Je bent een slimme en behulpzame gesprekspartner. \
+context = [{"role": "system", "content": 'Je bent een behulpzame gesprekspartner. \
                                           Antwoord beknopt en ter zake.\
                                           Vermeld niet dat je een AI of een soort service bent.'}]
 

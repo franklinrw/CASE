@@ -9,13 +9,11 @@ theme = gr.themes.Default().set(
 
 with gr.Blocks(theme=theme) as ui:
     with gr.Row():
-        with gr.Column(scale=1):
-            message = gr.Audio(source="microphone", type="filepath")
+        message = gr.Audio(source="microphone", type="filepath")
     with gr.Row():
         btn1 = gr.Button("Generate Reponse")
     with gr.Row():
-        with gr.Column(scale=1):
-            audio_response = gr.Audio()
+        audio_response = gr.Audio()
     with gr.Row():
         text_response = gr.Textbox(label="Transcript", max_lines=10)
     with gr.Row():
