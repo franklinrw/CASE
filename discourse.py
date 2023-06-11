@@ -5,7 +5,7 @@ import azure.cognitiveservices.speech as speechsdk
 LANGUAGE = "nl"
 AUDIO_FILE_NAME = "audio_response.wav"
 
-openai.api_key = os.environ['OPEN_AI_KEY']
+openai.api_key = os.environ['OPENAI_API_KEY']
 
 GEN_MODEL = "gpt-3.5-turbo"
 TRANSCRIBE_MODEL = "whisper-1"
@@ -14,9 +14,12 @@ speech_config = speechsdk.SpeechConfig(subscription=os.environ['AZURE_SPEECH_KEY
 speech_config.speech_synthesis_voice_name = "nl-NL-ColetteNeural"
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 
-context = [{"role": "system", "content": 'Je bent een behulpzame gesprekspartner. \
-                                          Antwoord beknopt en ter zake.\
-                                          Vermeld niet dat je een AI of een soort service bent.'}]
+context = [{ "role": "system", \
+"content": "Je bent een Nederlandse Tutor die gebruikers bijstaat om de Nederlandse taal te leren en te oefenen. \
+        Dit zal je doen doormiddel van dialogen en gesprekken die geleidelijk in complexiteit stijgt. \
+        Zorg voor een mix van open en gesloten vragen om de gebruiker uit te dagen en te betrekken. \
+        Corrigeer fouten in het Nederlands van de gebruiker op een bemoedigende manier om het leren te bevorderen. \
+        Focus op het creëren van een natuurlijke en menselijke interactie."}]
 
 def transcribe(model: str, audio: str):
     audio_file = open(audio, "rb")

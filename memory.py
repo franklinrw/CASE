@@ -11,7 +11,7 @@ repo = Repository(
     local_dir="data", clone_from=DATASET_REPO_URL, use_auth_token=HF_TOKEN
 )
 
-def save_as_hf_dataset():
+def save_as_hf_dataset(context):
     with open(DATA_FILE, "a") as csvfile:
         for message in context:
             writer = csv.DictWriter(csvfile, fieldnames=["name", "message"])
@@ -20,3 +20,6 @@ def save_as_hf_dataset():
             )
         commit_url = repo.push_to_hub()
         print(commit_url)
+
+def load_context():
+    
