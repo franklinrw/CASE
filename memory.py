@@ -3,7 +3,7 @@ import csv
 from huggingface_hub import Repository
 from huggingface_hub import hf_hub_download
 
-DATASET_REPO_URL = "FranklinWillemen/demo_storage"
+DATASET_REPO_URL = "datasets/FranklinWillemen/demo_storage"
 #DATA_FILENAME = ""
 #DATA_FILE = os.path.join("data", DATA_FILENAME)
 HF_TOKEN = os.environ.get("HF_TOKEN")
