@@ -24,6 +24,6 @@ with gr.Blocks(theme=theme) as ui:
 
     btn1.click(fn=d.respond, inputs=message, outputs=audio_response)
     btn2.click(fn=d.transcript, outputs=text_response)
-    btn3.click(fn=m.save_as_hf_dataset)
+    btn3.click(fn=m.save_context)
 
 ui.launch()
