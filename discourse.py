@@ -5,7 +5,7 @@ import azure.cognitiveservices.speech as speechsdk
 LANGUAGE = "nl"
 AUDIO_FILE_NAME = "audio_response.wav"
 
-openai.api_key = os.environ['OPENAI_API_KEY']
+openai.api_key = os.environ['OPEN_AI_KEY']
 
 GEN_MODEL = "gpt-3.5-turbo"
 TRANSCRIBE_MODEL = "whisper-1"
