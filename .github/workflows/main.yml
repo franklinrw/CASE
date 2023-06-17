@@ -17,4 +17,6 @@ jobs:
       - name: Push to hub
         env:
           HF: ${{ secrets.HG }}
+          OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
+          AZURE_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
         run: git push https://FranklinWillemen:$HF@huggingface.co/spaces/FranklinWillemen/CASE main
