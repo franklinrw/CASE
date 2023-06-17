@@ -13,7 +13,7 @@ TRANSCRIBE_MODEL = "whisper-1"
 
 speech_config = speechsdk.SpeechConfig(subscription=os.environ['AZURE_SPEECH_KEY'], region="westeurope")
 speech_config.speech_synthesis_voice_name = "nl-NL-ColetteNeural"
-speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
+speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
 
 context_nl = [{ "role": "system", \
 "content": "Je bent een Nederlandse Tutor die gebruikers bijstaat om de Nederlandse taal te leren en te oefenen. \
