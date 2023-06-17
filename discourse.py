@@ -13,7 +13,8 @@ TRANSCRIBE_MODEL = "whisper-1"
 
 speech_config = speechsdk.SpeechConfig(subscription=os.environ['AZURE_SPEECH_KEY'], region="westeurope")
 speech_config.speech_synthesis_voice_name = "nl-NL-ColetteNeural"
-speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
+file_config = speechsdk.audio.AudioOutputConfig(filename=AUDIO_FILE_NAME)
+speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=file_config)
 
 context = [{ "role": "system", \
     "content": "Je bent een behulpzame gesprekspartner die kort en bondig reageert. \
