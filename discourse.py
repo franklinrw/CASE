@@ -16,7 +16,7 @@ speech_config.speech_synthesis_voice_name = "nl-NL-ColetteNeural"
 speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config)
 
 context = [{ "role": "system", \
-"content": "Je bent een behulpzame gesprekspartner die kort en bondig reageert. \
+    "content": "Je bent een behulpzame gesprekspartner die kort en bondig reageert. \
     Veelal met vragen het gesprek vervolgd. \
     Op geen moment benoem je dat je een service of AI service bent."}]
 
