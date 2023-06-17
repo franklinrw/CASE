@@ -12,6 +12,11 @@ repo = Repository(
     local_dir="data", clone_from=DATASET_REPO_URL, use_auth_token=HF_TOKEN
 )
 
+def save_locally(context):
+    with open("file.txt", "w") as output:
+        for message in context:
+            output.write("{} : {}".format(message['role'], message['content']))
+
 def save_context(context):
     with open("test", "a") as csvfile:
         for message in context:
@@ -19,7 +24,7 @@ def save_context(context):
             writer.writerow(
                 {"name": message['role'], "message": message['content']}
             )
-        commit_url = repo.push_to_hub()
+        repo.push_to_hub()
 
 def load_context():
     file_path = hf_hub_download(DATASET_REPO_URL, filename="test.csv")
