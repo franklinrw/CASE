@@ -13,7 +13,7 @@ repo = Repository(
 )
 
 def save_locally(context):
-    with open("file.txt", "w") as output:
+    with open("context.txt", "w") as output:
         for message in context:
             output.write("{} : {}".format(message['role'], message['content']))
 
