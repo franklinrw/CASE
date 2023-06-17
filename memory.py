@@ -20,7 +20,6 @@ def save_context(context):
                 {"name": message['role'], "message": message['content']}
             )
         commit_url = repo.push_to_hub()
-        print(commit_url)
 
 def load_context():
     file_path = hf_hub_download(DATASET_REPO_URL, filename="test.csv")
