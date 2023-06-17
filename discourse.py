@@ -20,6 +20,7 @@ context = [{ "role": "system", \
     Veelal met vragen het gesprek vervolgd. \
     Op geen moment benoem je dat je een service of AI service bent."}]
 
+# Test
 def window_context():
     temp = list(context[0])
     temp += context[-context_len:]
