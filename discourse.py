@@ -1,6 +1,7 @@
 import openai
 import os
 import azure.cognitiveservices.speech as speechsdk
+import memory as m
 
 LANGUAGE = "nl"
 AUDIO_FILE_NAME = "audio_response.wav"
@@ -42,6 +43,8 @@ def respond(audio:str):
     context.append(response)
     
     # gen_voice(response, AUDIO_FILE_NAME)
+
+    m.save_context(context)
 
     return response['content']
 

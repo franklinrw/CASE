@@ -1,6 +1,5 @@
 import gradio as gr
 import discourse as d
-#import memory as m
 
 # set a custom theme
 theme = gr.themes.Default().set(
@@ -20,11 +19,8 @@ with gr.Blocks(theme=theme) as ui:
     with gr.Row():
         with gr.Column(scale=1):
             btn2 = gr.Button("Show Transcript")
-        #with gr.Column(scale=1):
-            #btn3 = gr.Button("Save Transcript")
 
     btn1.click(fn=d.respond, inputs=message, outputs=answer)
     btn2.click(fn=d.transcript, outputs=text_response)
-    #btn3.click(fn=m.save_context)
 
 ui.launch()
