@@ -21,11 +21,10 @@ context = [{ "role": "system", \
     Veelal met vragen het gesprek vervolgd. \
     Op geen moment benoem je dat je een service of AI service bent."}]
 
-# Test
-def window_context():
-    temp = list(context[0])
-    temp += context[-context_len:]
-    return temp
+# def window_context():
+#     temp = list(context[0])
+#     temp += context[-context_len:]
+#     return temp
 
 def transcribe(model: str, audio: str):
     audio_file = open(audio, "rb")
@@ -33,8 +32,7 @@ def transcribe(model: str, audio: str):
     return transcript
 
 def gen_response(model: str):
-    feed = window_context()
-    response = openai.ChatCompletion.create(model=model, messages=feed)
+    response = openai.ChatCompletion.create(model=model, messages=context)
     return response["choices"][0]["message"]
 
 # def gen_voice(response, response_filename):
