@@ -6,7 +6,6 @@ LANGUAGE = "nl"
 AUDIO_FILE_NAME = "audio_response.wav"
 
 openai.api_key = os.environ['OPENAI_API_KEY']
-context_len = 10
 
 GEN_MODEL = "gpt-3.5-turbo"
 TRANSCRIBE_MODEL = "whisper-1"
@@ -20,11 +19,6 @@ context = [{ "role": "system", \
     "content": "Je bent een behulpzame gesprekspartner die kort en bondig reageert. \
     Veelal met vragen het gesprek vervolgd. \
     Op geen moment benoem je dat je een service of AI service bent."}]
-
-# def window_context():
-#     temp = list(context[0])
-#     temp += context[-context_len:]
-#     return temp
 
 def transcribe(model: str, audio: str):
     audio_file = open(audio, "rb")
@@ -53,7 +47,7 @@ def respond(audio:str):
 
 def transcript():
     transcript = ""
-    for m in context[-context_len:]:
+    for m in context:
         if m["role"] != "system":
             transcript += m["role"] + " : " + m["content"] + "\n\n"
 
