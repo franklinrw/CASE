@@ -49,7 +49,7 @@ def respond(audio:str):
     
     # gen_voice(response, AUDIO_FILE_NAME)
 
-    return response
+    return response['content']
 
 def transcript():
     transcript = ""
