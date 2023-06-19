@@ -11,10 +11,10 @@ context_len = 10
 GEN_MODEL = "gpt-3.5-turbo"
 TRANSCRIBE_MODEL = "whisper-1"
 
-speech_config = speechsdk.SpeechConfig(subscription=os.environ['AZURE_SPEECH_KEY'], region="westeurope")
-speech_config.speech_synthesis_voice_name = "nl-NL-ColetteNeural"
-file_config = speechsdk.audio.AudioOutputConfig(filename=AUDIO_FILE_NAME)
-speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=file_config)
+# speech_config = speechsdk.SpeechConfig(subscription=os.environ['AZURE_SPEECH_KEY'], region="westeurope")
+# speech_config.speech_synthesis_voice_name = "nl-NL-ColetteNeural"
+# file_config = speechsdk.audio.AudioOutputConfig(filename=AUDIO_FILE_NAME)
+# speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=file_config)
 
 context = [{ "role": "system", \
     "content": "Je bent een behulpzame gesprekspartner die kort en bondig reageert. \
@@ -37,10 +37,10 @@ def gen_response(model: str):
     response = openai.ChatCompletion.create(model=model, messages=feed)
     return response["choices"][0]["message"]
 
-def gen_voice(response, response_filename):
-    reponse_audio = speech_synthesizer.speak_text_async(response['content']).get()
-    stream = speechsdk.AudioDataStream(reponse_audio)
-    stream.save_to_wav_file(response_filename)
+# def gen_voice(response, response_filename):
+#     reponse_audio = speech_synthesizer.speak_text_async(response['content']).get()
+#     stream = speechsdk.AudioDataStream(reponse_audio)
+#     stream.save_to_wav_file(response_filename)
     
 def respond(audio:str):
     transcript = transcribe(TRANSCRIBE_MODEL, audio)
@@ -49,9 +49,9 @@ def respond(audio:str):
     response = gen_response(GEN_MODEL)
     context.append(response)
     
-    gen_voice(response, AUDIO_FILE_NAME)
+    # gen_voice(response, AUDIO_FILE_NAME)
 
-    return AUDIO_FILE_NAME
+    return response
 
 def transcript():
     transcript = ""
