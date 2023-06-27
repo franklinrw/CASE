@@ -1,4 +1,4 @@
-TARS-ENV/
+envcase/
 local_config.py
 *.wav
 context*.txt
