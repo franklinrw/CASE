@@ -12,15 +12,14 @@ with gr.Blocks(theme=theme) as ui:
     with gr.Row():
         btn1 = gr.Button("Generate Reponse")
     with gr.Row():
-        # audio_response = gr.Audio()
-        answer = gr.Textbox(label="Answer", max_lines=10)
+        audio_response = gr.Audio()
     with gr.Row():
         text_response = gr.Textbox(label="Transcript", max_lines=10)
     with gr.Row():
         with gr.Column(scale=1):
             btn2 = gr.Button("Show Transcript")
 
-    btn1.click(fn=d.respond, inputs=message, outputs=answer)
+    btn1.click(fn=d.respond, inputs=message, outputs=audio_response)
     btn2.click(fn=d.transcript, outputs=text_response)
 
 ui.launch()
