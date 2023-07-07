@@ -1,7 +1,6 @@
 import openai
 import os
 #import azure.cognitiveservices.speech as speechsdk
-#import store as m
 
 LANGUAGE = "nl"
 # AUDIO_FILE_NAME = "audio_response.wav"
